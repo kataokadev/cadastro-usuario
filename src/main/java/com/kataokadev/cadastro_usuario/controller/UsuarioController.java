@@ -8,33 +8,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/users")
 @RequiredArgsConstructor
 public class UsuarioController {
 
     private final UsuarioServices usuarioServices;
 
     @PostMapping
-    public ResponseEntity<Void> salvarUsuario(@RequestBody Usuario usuario){
-        usuarioServices.salvarUsuario(usuario);
+    public ResponseEntity<Void> saveUsuario(@RequestBody Usuario usuario){
+        usuarioServices.saveUsuario(usuario);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping
-    public ResponseEntity<Usuario> buscarUsuarioPorId(@RequestParam Integer id){
-        return ResponseEntity.ok(usuarioServices.buscarUsuarioPorId(id));
+    public ResponseEntity<Usuario> findUsuarioPorId(@RequestParam Integer id){
+        return ResponseEntity.ok(usuarioServices.findUsuarioPorId(id));
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deletarUsuarioPorId(@RequestParam Integer id){
-        usuarioServices.deletarPorId(id);
+    public ResponseEntity<Void> deleteUsuarioPorId(@RequestParam Integer id){
+        usuarioServices.deletePorId(id);
         return ResponseEntity.ok().build();
     }
 
     @PutMapping
-    public ResponseEntity<Void> atualizarUsuarioPorId(@RequestParam Integer id,
+    public ResponseEntity<Void> updateUsuarioPorId(@RequestParam Integer id,
                                                       @RequestBody Usuario usuario){
-        usuarioServices.atualizarUsuarioPorId(id, usuario);
+        usuarioServices.updateUsuarioPorId(id, usuario);
         return ResponseEntity.ok().build();
     }
 

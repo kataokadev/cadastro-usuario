@@ -13,23 +13,23 @@ public class UsuarioServices {
         this.repository = repository;
     }
 
-    public void salvarUsuario(Usuario usuario){
+    public void saveUsuario(Usuario usuario){
         repository.saveAndFlush(usuario);
     }
 
-    public Usuario buscarUsuarioPorId(Integer id){
+    public Usuario findUsuarioPorId(Integer id){
         return repository.findById(id).orElseThrow(
                 () -> new RuntimeException("Id não encontrado")
         );
     }
 
-    public void deletarPorId(Integer id){
+    public void deletePorId(Integer id){
         repository.deleteById(id);
     }
 
-    public void atualizarUsuarioPorId(Integer id, Usuario usuario){
+    public void updateUsuarioPorId(Integer id, Usuario usuario){
         Usuario usuarioEntities = repository.findById(id).orElseThrow(() -> new RuntimeException("Usuario não econtrado"));
-        Usuario usuarioAtualizado = Usuario.builder()
+        Usuario usuarioUpdate = Usuario.builder()
                 .email(usuario.getEmail() != null ? usuario.getEmail()
                         : usuarioEntities.getEmail())
                 .nome(usuario.getNome() != null ? usuario.getNome()
@@ -37,7 +37,7 @@ public class UsuarioServices {
                 .id(usuarioEntities.getId())
                 .build();
 
-        repository.saveAndFlush(usuarioAtualizado);
+        repository.saveAndFlush(usuarioUpdate);
 
     }
 
