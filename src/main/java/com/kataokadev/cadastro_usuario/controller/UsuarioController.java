@@ -21,13 +21,13 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public ResponseEntity<Usuario> buscarUsuarioPorEmail(@RequestParam String email){
-        return ResponseEntity.ok(usuarioServices.buscarUsuarioPorEmail(email));
+    public ResponseEntity<Usuario> buscarUsuarioPorId(@RequestParam Integer id){
+        return ResponseEntity.ok(usuarioServices.buscarUsuarioPorId(id));
     }
 
     @DeleteMapping
-    public ResponseEntity<Void> deletarUsuarioPorEmail(@RequestParam String email){
-        usuarioServices.deletarPorEmail(email);
+    public ResponseEntity<Void> deletarUsuarioPorId(@RequestParam Integer id){
+        usuarioServices.deletarPorId(id);
         return ResponseEntity.ok().build();
     }
 
