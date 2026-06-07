@@ -8,6 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
+@Jacksonized 
 @Table(name = "users")
 @Entity
 public class Usuario {
