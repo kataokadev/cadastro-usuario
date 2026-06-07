@@ -1,14 +1,13 @@
 package com.kataokadev.cadastro_usuario.infrastructure.entities;
 
 import jakarta.persistence.*;
-import lombok.extern.jackson.Jacksonized;
 import lombok.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Jacksonized 
+@Builder
 @Table(name = "users")
 @Entity
 public class Usuario {
